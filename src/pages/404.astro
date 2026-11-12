@@ -1,0 +1,86 @@
+---
+// Full standalone document: the 404 page has noindex meta and no canonical/OG tags,
+// so it deliberately does not use the shared Layout.
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Shailly</title>
+<meta name="description" content="That page doesn't exist. Return to Shailly's portfolio homepage.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f4efe4">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script is:inline>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Shailly — home">
+      <span class="brand-name">Shailly</span>
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-role mono">Operations / Program Management</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/" data-nav>Home</a>
+      <a href="/about/" data-nav>About</a>
+      <a href="/experience/" data-nav>Experience</a>
+      <a href="/work/" data-nav>Selected Work</a>
+      <a href="/skills/" data-nav>Skills</a>
+      <a href="/contact/" data-nav>Contact</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <nav aria-label="Mobile">
+    <a href="/"><span class="idx">01</span>Home</a>
+    <a href="/about/"><span class="idx">02</span>About</a>
+    <a href="/experience/"><span class="idx">03</span>Experience</a>
+    <a href="/work/"><span class="idx">04</span>Selected Work</a>
+    <a href="/skills/"><span class="idx">05</span>Skills</a>
+    <a href="/contact/"><span class="idx">06</span>Contact</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="mailto:i.am.shailly@gmail.com">i.am.shailly@gmail.com</a>
+    <a href="https://www.linkedin.com/in/shailly-presently" target="_blank" rel="noopener">linkedin.com/in/shailly-presently</a>
+  </div>
+</div>
+
+<main id="main">
+  <section class="page-head" style="min-height:62vh;display:flex;align-items:center">
+    <div class="wrap">
+      <p class="mono" style="color:var(--blue);margin-bottom:1.2rem">Error 404 / Loose end</p>
+      <h1>This one fell <em>through the cracks.</em></h1>
+      <div class="page-lede">
+        <p>The page you were looking for doesn&rsquo;t exist, or has moved. The work is still where you left it.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="/">Back to home <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost" href="/work/">Selected Work</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom mono" style="border-top:0;padding-top:0">
+      <span>&copy; <span data-year>2026</span> Shailly</span>
+      <span>Operations &middot; Program Management &middot; Process Improvement</span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/assets/js/main.js" defer></script>
+</body>
+</html>

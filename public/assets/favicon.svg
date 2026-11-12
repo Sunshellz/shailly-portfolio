@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Shailly">
+  <rect width="64" height="64" fill="#f4efe4"/>
+  <rect x="8" y="8" width="8" height="8" fill="#1b33f0"/>
+  <text x="30" y="46" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="italic" fill="#121417" text-anchor="middle">S</text>
+</svg>

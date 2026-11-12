@@ -1,0 +1,140 @@
+"""Shared chrome for Shailly's portfolio pages."""
+
+BASE = "https://site-52f00d047e3a40c98ee7d33ad2f392dd.freebuff.page"
+
+NAV = [
+    ("/", "Home"),
+    ("/about/", "About"),
+    ("/experience/", "Experience"),
+    ("/work/", "Selected Work"),
+    ("/skills/", "Skills"),
+    ("/contact/", "Contact"),
+]
+
+HEAD = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%%TITLE%%</title>
+<meta name="description" content="%%DESC%%">
+<meta name="author" content="Shailly">
+<meta property="og:type" content="%%OGTYPE%%">
+<meta property="og:title" content="%%OGTITLE%%">
+<meta property="og:description" content="%%DESC%%">
+<meta property="og:url" content="%%CANONICAL%%">
+<meta name="theme-color" content="#f4efe4">
+<link rel="canonical" href="%%CANONICAL%%">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">
+%%EXTRAHEAD%%
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Shailly — home">
+      <span class="brand-name">Shailly</span>
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-role mono">Operations / Program Management</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/" data-nav>Home</a>
+      <a href="/about/" data-nav>About</a>
+      <a href="/experience/" data-nav>Experience</a>
+      <a href="/work/" data-nav>Selected Work</a>
+      <a href="/skills/" data-nav>Skills</a>
+      <a href="/contact/" data-nav>Contact</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <nav aria-label="Mobile">
+    <a href="/"><span class="idx">01</span>Home</a>
+    <a href="/about/"><span class="idx">02</span>About</a>
+    <a href="/experience/"><span class="idx">03</span>Experience</a>
+    <a href="/work/"><span class="idx">04</span>Selected Work</a>
+    <a href="/skills/"><span class="idx">05</span>Skills</a>
+    <a href="/contact/"><span class="idx">06</span>Contact</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="mailto:i.am.shailly@gmail.com">i.am.shailly@gmail.com</a>
+    <a href="https://www.linkedin.com/in/shailly-presently" target="_blank" rel="noopener">linkedin.com/in/shailly-presently</a>
+    <span class="mono" style="color:var(--muted)">Operations &middot; Program Management &middot; Process Improvement</span>
+  </div>
+</div>
+
+<main id="main">
+"""
+
+TAIL = """</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Shailly — home">
+          <span class="brand-name">Shailly</span>
+          <span class="brand-mark" aria-hidden="true"></span>
+        </a>
+        <p class="footer-descriptor">Turning moving parts into organised, executable work.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3>Navigate</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/experience/">Experience</a></li>
+            <li><a href="/work/">Selected Work</a></li>
+            <li><a href="/skills/">Skills</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Elsewhere</h3>
+          <ul>
+            <li><a href="mailto:i.am.shailly@gmail.com">i.am.shailly@gmail.com</a></li>
+            <li><a href="tel:+917300711147">+91 7300711147</a></li>
+            <li><a href="https://www.linkedin.com/in/shailly-presently" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>&copy; <span data-year>2026</span> Shailly</span>
+      <span>Operations &middot; Program Management &middot; Process Improvement</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
+"""
+
+
+def page(path, title, desc, body, og_type="website", og_title=None, extra_head="", main_open=True):
+    """Write a full page. `body` is markup placed inside <main> unless main_open=False."""
+    url = BASE + (path if path != "index.html" else "/")
+    html = HEAD
+    html = html.replace("%%TITLE%%", title)
+    html = html.replace("%%DESC%%", desc)
+    html = html.replace("%%OGTYPE%%", og_type)
+    html = html.replace("%%OGTITLE%%", og_title or title)
+    html = html.replace("%%CANONICAL%%", url)
+    html = html.replace("%%EXTRAHEAD%%", extra_head)
+    html += body if main_open else ""
+    html += TAIL
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(html)
+    return path
