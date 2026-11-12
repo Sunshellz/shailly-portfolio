@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers — static asset deployment for the Astro build (dist/).
+  // No worker script needed: assets are served directly, and any not-found
+  // route serves dist/404.html with a 404 status.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

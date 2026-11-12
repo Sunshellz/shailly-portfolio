@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://site-52f00d047e3a40c98ee7d33ad2f392dd.freebuff.page/sitemap.xml
+Sitemap: https://portfolio.shailly.workers.dev/sitemap.xml
