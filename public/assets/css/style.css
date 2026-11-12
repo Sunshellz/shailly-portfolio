@@ -2456,6 +2456,21 @@ main { animation: pageIn 0.5s var(--ease) both; }
   margin-bottom: 0;
 }
 
+/* Attached document embeds (work samples: full PDF documents) */
+.doc-frame {
+  display: block;
+  width: 100%;
+  height: min(72vh, 900px);
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+/* Recognition: badge/attachment links */
+.recog .cert-action {
+  display: inline-block;
+  margin-top: 0.7rem;
+}
+
 /* --- Kraftshala: framework, artefacts, dashboard, findings --------------- */
 .framework {
   display: grid;
